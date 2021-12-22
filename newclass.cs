@@ -1,0 +1,7 @@
+namespace Tetris
+{
+    class newclass
+    {
+        
+    }
+}
