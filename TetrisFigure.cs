@@ -30,7 +30,7 @@ namespace Tetris
 			if (select == Select.O) FigureO();
 			else if (select == Select.I) FigureI(rotate);
 			else if (select == Select.S) FigureS(rotate);
-			// else if (select == Select.Z) FigureZ(rotate);
+			else if (select == Select.Z) FigureZ(rotate);
 			// else if (select == Select.L) FigureL(rotate);
 			// else if (select == Select.J) FigureJ(rotate);
 			// else if (select == Select.T) FigureT(rotate); 
@@ -148,6 +148,25 @@ namespace Tetris
 				AddPointFigure(0, 3);
 			}
 		}
+
+		public void FigureZ(Rotate rotate)
+		{
+			if (rotate == Rotate.degree0 || rotate == Rotate.degree180)
+			{
+				AddPointFigure(0, 3);
+				AddPointFigure(1, 2);
+				AddPointFigure(1, 3);
+				AddPointFigure(2, 2);
+			}else if (rotate == Rotate.degree90 || rotate == Rotate.degree270)
+			{
+				AddPointFigure(0, 1);
+				AddPointFigure(0, 2);
+				AddPointFigure(1, 2);
+				AddPointFigure(1, 3);
+			}
+		}
+
+		
 
 	}
 }
