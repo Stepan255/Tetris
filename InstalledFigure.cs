@@ -67,7 +67,6 @@ namespace Tetris
 
 		public void ClearLine(int y)
 		{
-			int j = 0;
 			for (int i = pList.Count() - 1; i >= 0; i--)
 			{
 				if (pList[i].y == y)
