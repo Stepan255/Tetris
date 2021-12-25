@@ -44,14 +44,6 @@ namespace Tetris
 				TetrisFigure tetrisFigureWhithRotate = new TetrisFigure(select, newRotate);
 				tetrisFigureWhithRotate.Offset(offsetLeft, offsetTop);
 				return tetrisFigureWhithRotate;
-			// if (key == ConsoleKey.UpArrow)
-			// {
-			// }
-			// if (key == ConsoleKey.)
-			// {
-			// 	if (indexOfRotate - 1 < 0) indexOfRotate = 3;
-			// 	else indexOfRotate -= 1;
-			// }
 		}
 
 		public TetrisFigure HorizontalMove(ConsoleKey key)

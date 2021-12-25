@@ -17,6 +17,14 @@ namespace Tetris
 			}
 		}
 
+		internal void Clear()
+		{
+			foreach (Point p in pList)
+			{
+				p.Clear();
+			}
+		}
+
 		internal bool IsHit(Figure figure)
 		{
 			foreach (Point p in pList)
