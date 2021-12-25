@@ -7,7 +7,6 @@ namespace Tetris
 		S,
 		Z,
 		L,
-		J,
-		T
+		J
 	}
 }

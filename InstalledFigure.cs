@@ -4,11 +4,13 @@ namespace Tetris
 	{
 		List<CountPointInLine> countPointInLineList;
 		int maxWidth;
+		public int score;
 		public InstalledFigure(int mapWidth, int mapHeight)
 		{
 			maxWidth = mapWidth;
 			countPointInLineList = new List<CountPointInLine>();
 			pList = new List<Point>();
+			score = 0;
 		}
 
 		public bool IsHit(TetrisFigure tetrisFigure)
@@ -62,7 +64,14 @@ namespace Tetris
 					ClearLine(countPointInLine.y);
 				}
 			}
-			if (yMin <= int.MaxValue) MoveDown(yMin, countOfClearLine);
+			if (yMin <= int.MaxValue) 
+			{
+				if (countOfClearLine == 1) score += 100;
+				else if (countOfClearLine == 2) score += 300;
+				else if (countOfClearLine == 3) score += 700;
+				else if (countOfClearLine == 4) score += 1500;
+				MoveDown(yMin, countOfClearLine);
+			}
 		}
 
 		public void ClearLine(int y)
