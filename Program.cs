@@ -12,7 +12,7 @@
 			while (!gameOver)
 			{
 				installedFigure.CheckLine();
-				TetrisFigure tetrisFigure = new TetrisFigure(TetrisFigure.RandomFigure(4), TetrisFigure.RandomRotate());
+				TetrisFigure tetrisFigure = new TetrisFigure(TetrisFigure.RandomFigure(6), TetrisFigure.RandomRotate());
 				tetrisFigure.Offset(4, 0);
 				tetrisFigure.Draw();
 				while (true)
