@@ -10,6 +10,7 @@
 			string textGameOver = string.Empty;
 			string textScore = string.Empty;
 			int score = 0;
+			bool gameOver = false;
 			while (true)
 			{
 				Console.Clear();
@@ -30,9 +31,10 @@
 
 					InstalledFigure installedFigure = new InstalledFigure(mapWidth, mapHeight);
 
-					bool gameOver = false;
+					gameOver = false;
 					while (!gameOver)
 					{
+
 						installedFigure.CheckLine();
 						interfac.ReWriteScore(installedFigure.score);
 
@@ -43,11 +45,18 @@
 						tetrisFigure.Offset(4, 0);
 						tetrisFigure.Draw();
 
+						Thread.Sleep(100);
+						bool firstPass = true;
 						while (true)
 						{
-							int timeStep = 200;
+							int timeStep = 0;
+							if (interfac.score > 3000) timeStep = 200;
+							else if (interfac.score > 5000) timeStep = 100;
+							else timeStep = 300;
+
 							while (timeStep > 0)
 							{
+								int timeToSleep = 5;
 								if (Console.KeyAvailable)
 								{
 									ConsoleKeyInfo key = Console.ReadKey();
@@ -63,9 +72,8 @@
 										if (!borders.IsHit(FigureMove) && !installedFigure.IsHit(FigureMove))
 											tetrisFigure = tetrisFigure.RewriteOn(FigureMove);
 									}
-									else if (key.Key == ConsoleKey.DownArrow) timeStep = 0;
+									else if (!firstPass && key.Key == ConsoleKey.DownArrow) timeStep = 0;
 								}
-								int timeToSleep = 10;
 								timeStep -= timeToSleep;
 								Thread.Sleep(timeToSleep);
 							}
@@ -78,12 +86,16 @@
 								else installedFigure.Add(tetrisFigure);
 								break;
 							}
+							firstPass = false;
 						}
 						score = interfac.score;
 					}
 				}
-				textGameOver = "GAME OVER";
-				textScore = "Ваш результат равен " + score;
+				if (gameOver)
+				{
+					textGameOver = "GAME OVER";
+					textScore = "Ваш результат равен " + score;
+				}
 			}
 
 		}
