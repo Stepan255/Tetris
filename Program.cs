@@ -8,16 +8,12 @@
 			int mapWidth = 10;
 			int namberOfFigure = 6;
 			string textGameOver = string.Empty;
+			string textScore = string.Empty;
 			int score = 0;
 			while (true)
 			{
 				Console.Clear();
-				Console.SetCursorPosition(mapWidth / 2, mapHeight / 2 - 2);
-				Console.Write(textGameOver);
-				Console.SetCursorPosition(mapWidth / 2, mapHeight / 2);
-				Console.Write("Для начала нажмите ENTER");
-				Console.SetCursorPosition(mapWidth / 2, mapHeight / 2 + 1);
-				Console.Write("Для выхода из программы нажмите ESC");
+				Interface.WriteGameOver(textGameOver, textScore, mapWidth, mapHeight);
 
 				ConsoleKeyInfo keyToStart = Console.ReadKey();
 				if (keyToStart.Key == ConsoleKey.Escape) break;
@@ -86,7 +82,8 @@
 						score = interfac.score;
 					}
 				}
-				textGameOver = "GAME OVER\nВаш результат равен " + score;
+				textGameOver = "GAME OVER";
+				textScore = "Ваш результат равен " + score;
 			}
 
 		}

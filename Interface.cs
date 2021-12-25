@@ -50,5 +50,17 @@ namespace Tetris
 				}
 			}
 		}
+
+		public static void WriteGameOver(string textGameOver, string textScore, int mapWidth, int mapHeight)
+		{
+			Console.SetCursorPosition(mapWidth / 2, mapHeight / 2 - 2);
+			Console.Write(textGameOver);
+			Console.SetCursorPosition(mapWidth / 2, mapHeight / 2 - 1);
+			Console.Write(textScore);
+			Console.SetCursorPosition(mapWidth / 2, mapHeight / 2);
+			Console.Write("Для начала нажмите ENTER");
+			Console.SetCursorPosition(mapWidth / 2, mapHeight / 2 + 1);
+			Console.Write("Для выхода из программы нажмите ESC");
+		}
 	}
 }
